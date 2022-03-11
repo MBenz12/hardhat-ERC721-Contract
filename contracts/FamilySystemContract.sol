@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 
-
-contract FamilySystemContract {
+contract FamilySystemContract is ERC721 {
   struct character {
     string name;
     uint8 gender;
@@ -13,7 +13,7 @@ contract FamilySystemContract {
   mapping (uint256 => character) public characters;
   uint256 public count;
 
-  constructor() {
+  constructor() ERC721("Family System", "FS") {
     count = 0;
   }
 
